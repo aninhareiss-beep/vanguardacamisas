@@ -1,0 +1,306 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+    color:white;
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.85),rgba(0,0,0,.85)),
+    url("owl-eyes.jpeg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+}
+
+.pagina{
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+}
+
+h1{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:90px;
+
+    letter-spacing:10px;
+
+    color:#e34f91;
+
+    margin-bottom:25px;
+
+    animation:fadeDown .8s ease;
+
+}
+
+.check{
+
+    width:120px;
+    height:120px;
+
+    border:3px solid #e34f91;
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:65px;
+    font-weight:bold;
+
+    color:#e34f91;
+
+    margin-bottom:30px;
+
+    transform:scale(0);
+
+    animation:pop .6s ease forwards;
+    animation-delay:.3s;
+
+}
+
+h2{
+
+    font-family:'Bebas Neue',sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:5px;
+
+    margin-bottom:15px;
+
+    opacity:0;
+
+    animation:fadeUp .8s forwards;
+    animation-delay:.8s;
+
+}
+
+.texto{
+
+    color:#d7d7d7;
+
+    margin-bottom:40px;
+
+    max-width:550px;
+
+    line-height:1.6;
+
+    opacity:0;
+
+    animation:fadeUp .8s forwards;
+    animation-delay:1s;
+
+}
+
+.resumo{
+
+    border:2px solid rgba(227,79,145,.5);
+
+    border-radius:18px;
+
+    padding:28px 35px;
+
+    width:min(420px,90%);
+
+    margin-bottom:35px;
+
+    background:rgba(255,255,255,.03);
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:fadeUp .8s forwards;
+    animation-delay:1.2s;
+
+}
+
+.resumo p{
+
+    margin:12px 0;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
+
+.resumo p:first-child{
+
+    color:#e34f91;
+
+    font-weight:600;
+
+}
+
+.mensagem{
+
+    color:#cfcfcf;
+
+    line-height:1.7;
+
+    max-width:550px;
+
+    margin-bottom:40px;
+
+    opacity:0;
+
+    animation:fadeUp .8s forwards;
+    animation-delay:1.4s;
+
+}
+
+.botao{
+
+    text-decoration:none;
+
+    color:#e34f91;
+
+    border:2px solid #e34f91;
+
+    padding:16px 42px;
+
+    border-radius:12px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    opacity:0;
+
+    animation:fadeUp .8s forwards;
+    animation-delay:1.6s;
+
+}
+
+.botao:hover{
+
+    background:#e34f91;
+
+    color:black;
+
+    transform:translateY(-3px);
+
+    box-shadow:0 0 25px rgba(227,79,145,.35);
+
+}
+
+@keyframes pop{
+
+    0%{
+
+        transform:scale(0);
+
+        opacity:0;
+
+    }
+
+    70%{
+
+        transform:scale(1.12);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes fadeDown{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    h1{
+
+        font-size:65px;
+
+    }
+
+    h2{
+
+        font-size:34px;
+
+    }
+
+    .check{
+
+        width:95px;
+        height:95px;
+
+        font-size:50px;
+
+    }
+
+    .resumo{
+
+        padding:22px;
+
+    }
+
+}

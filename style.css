@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #000;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.inicio {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 90px;
+}
+
+
+/* LOGO */
+.logo {
+    width: 260px;
+    max-width: 70%;
+    margin-bottom: 15px;
+}
+
+
+/* NOME */
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 85px;
+    letter-spacing: 14px;
+    color: #e45b98;
+    line-height: 1;
+}
+
+
+/* ANO */
+.ano {
+    margin-top: 10px;
+    font-size: 15px;
+    letter-spacing: 7px;
+    color: #d9a0bb;
+}
+
+
+/* RESERVA */
+.reservar {
+    margin-top: 50px;
+    color: #e45b98;
+    text-decoration: none;
+    font-size: 16px;
+    letter-spacing: 5px;
+    border-bottom: 1px solid #e45b98;
+    padding-bottom: 8px;
+}

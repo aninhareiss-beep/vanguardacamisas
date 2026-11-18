@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    height: 100vh;
+    overflow: hidden;
+
+    font-family: 'Montserrat', sans-serif;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+    ),
+    url("owl-eyes.jpeg");
+
+    background-size: cover;
+    background-position: center;
+
+    color: white;
+
+}
+
+
+
+.pagina {
+
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 120px;
+
+}
+
+
+
+h1 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 85px;
+
+    letter-spacing: 14px;
+
+    color: #e45b98;
+
+}
+
+
+
+.subtitulo {
+
+    margin-top: 35px;
+
+    font-size: 18px;
+
+    letter-spacing: 7px;
+
+    color: #d9a0bb;
+
+}
+
+
+
+.opcoes {
+
+    margin-top: 90px;
+
+    display: flex;
+
+    flex-direction: row;
+
+    gap: 120px;
+
+}
+
+
+
+.opcoes a {
+
+    color: #e45b98;
+
+    text-decoration: none;
+
+    font-size: 30px;
+
+    letter-spacing: 8px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #e45b98;
+
+    transition: 0.3s;
+
+}
+
+
+
+.opcoes a:hover {
+
+    color: white;
+
+    border-color: white;
+
+}

@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    min-height: 100vh;
+
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.82)),
+        url("owl-eyes.jpeg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.pagina {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+}
+
+h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 90px;
+    letter-spacing: 12px;
+    color: #e34f91;
+
+    margin-bottom: 15px;
+}
+
+.topo {
+    display: flex;
+    gap: 30px;
+
+    font-size: 18px;
+    letter-spacing: 4px;
+
+    color: #e8a2c2;
+
+    margin-bottom: 60px;
+}
+
+.bloco {
+    width: 100%;
+    max-width: 700px;
+
+    text-align: center;
+
+    margin-bottom: 50px;
+}
+
+.bloco h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    letter-spacing: 6px;
+
+    color: #ffffff;
+
+    margin-bottom: 25px;
+}
+
+.opcoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.opcoes button {
+    background: transparent;
+
+    color: #e34f91;
+
+    border: 2px solid #e34f91;
+
+    padding: 18px 38px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+    letter-spacing: 3px;
+    font-weight: 500;
+
+    transition: .3s;
+}
+
+.opcoes button:hover {
+    background: #e34f91;
+    color: black;
+}
+
+.opcoes button.ativo {
+    background: #e34f91;
+    color: black;
+}
+
+#continuar {
+    margin-top: 25px;
+
+    background: transparent;
+
+    color: #e34f91;
+
+    border: 2px solid #e34f91;
+
+    padding: 18px 55px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+    letter-spacing: 4px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+#continuar:hover {
+    background: #e34f91;
+    color: black;
+}
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 65px;
+    }
+
+    .topo {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .opcoes {
+        gap: 12px;
+    }
+
+    .opcoes button {
+        width: 140px;
+    }
+
+}

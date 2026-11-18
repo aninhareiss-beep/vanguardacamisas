@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vanguarda | Feminino</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="numeros.css">
+</head>
+
+
+<body>
+
+    <main class="pagina">
+
+
+        <div class="lista">
+
+            <p class="subtitulo">
+                ESCOLHA SEU NÚMERO
+            </p>
+
+            <div class="numeros" id="listaNumeros"></div>
+
+        </div>
+
+
+
+        <div class="identidade">
+
+            <h1>
+                FEMI<br>
+                NINO
+            </h1>
+
+            <span>
+                VANGUARDA
+            </span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <script type="module">
+
+import { db } from "./firebase.js";
+
+import { collection, getDocs, query, where } 
+from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+
+
+const genero = "feminino";
+
+const lista = document.getElementById("listaNumeros");
+
+
+
+const reservas = await getDocs(
+    query(
+        collection(db, "reservas"),
+        where("genero", "==", genero)
+    )
+);
+
+
+
+const numerosReservados = [];
+
+
+reservas.forEach((doc) => {
+
+    numerosReservados.push(doc.data().numero);
+
+});
+
+
+
+
+
+for (let numero = 1; numero <= 100; numero++) {
+
+
+    const botao = document.createElement("a");
+
+
+    botao.innerHTML = numero.toString().padStart(2,"0");
+
+
+
+    if (numerosReservados.includes(numero)) {
+
+
+        botao.style.opacity = "0.3";
+
+        botao.style.pointerEvents = "none";
+
+        botao.innerHTML += " ✕";
+
+
+    } 
+
+    else {
+
+
+        botao.href = "modelo.html";
+
+
+        botao.onclick = function() {
+
+            localStorage.setItem("genero", genero);
+
+            localStorage.setItem("numero", numero);
+
+        };
+
+
+    }
+
+
+    lista.appendChild(botao);
+
+
+}
+
+</script>
+
+</body>
+
+</html>

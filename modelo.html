@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vanguarda | Modelo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="modelo.css">
+
+</head>
+
+<body>
+
+<main class="pagina">
+
+    <h1>VANGUARDA</h1>
+
+    <div class="topo">
+
+        <span id="genero"></span>
+
+        <span>
+            NÚMERO <b id="numero"></b>
+        </span>
+
+    </div>
+
+    <div class="bloco">
+
+        <h2>MODELO</h2>
+
+        <div class="opcoes">
+
+            <button class="modelo" data-modelo="Slim">
+                SLIM
+            </button>
+
+            <button class="modelo" data-modelo="Babylook">
+                BABYLOOK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="bloco">
+
+        <h2>TAMANHO</h2>
+
+        <div class="opcoes tamanhos">
+
+            <button class="tamanho" data-tamanho="PP">PP</button>
+            <button class="tamanho" data-tamanho="P">P</button>
+            <button class="tamanho" data-tamanho="M">M</button>
+            <button class="tamanho" data-tamanho="G">G</button>
+            <button class="tamanho" data-tamanho="GG">GG</button>
+
+        </div>
+
+    </div>
+
+
+    <button id="continuar">
+        CONTINUAR
+    </button>
+
+
+</main>
+
+
+<script>
+
+const genero = localStorage.getItem("genero");
+const numero = localStorage.getItem("numero");
+
+document.getElementById("genero").textContent =
+genero.toUpperCase();
+
+document.getElementById("numero").textContent =
+numero.toString().padStart(2, "0");
+
+let modeloSelecionado = "";
+let tamanhoSelecionado = "";
+
+
+
+document.querySelectorAll(".modelo").forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+        document.querySelectorAll(".modelo")
+        .forEach(b => b.classList.remove("ativo"));
+
+        botao.classList.add("ativo");
+
+        modeloSelecionado = botao.dataset.modelo;
+
+    });
+
+});
+
+
+
+document.querySelectorAll(".tamanho").forEach(botao => {
+
+    botao.addEventListener("click", () => {
+
+        document.querySelectorAll(".tamanho")
+        .forEach(b => b.classList.remove("ativo"));
+
+        botao.classList.add("ativo");
+
+        tamanhoSelecionado = botao.dataset.tamanho;
+
+    });
+
+});
+
+
+
+document.getElementById("continuar").addEventListener("click", () => {
+
+    if(modeloSelecionado === ""){
+
+        alert("Escolha o modelo.");
+
+        return;
+
+    }
+
+
+    if(tamanhoSelecionado === ""){
+
+        alert("Escolha o tamanho.");
+
+        return;
+
+    }
+
+
+    localStorage.setItem("modelo", modeloSelecionado);
+
+    localStorage.setItem("tamanho", tamanhoSelecionado);
+
+    window.location.href = "reserva.html";
+
+});
+
+</script>
+
+</body>
+
+</html>

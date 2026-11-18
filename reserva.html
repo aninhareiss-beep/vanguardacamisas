@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vanguarda | Reserva</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="reserva.css">
+
+</head>
+
+<body>
+
+<main class="pagina">
+
+<h1>VANGUARDA</h1>
+
+<div class="escolha">
+
+    <span id="genero"></span>
+
+    <span>
+        NÚMERO <b id="numero"></b>
+    </span>
+
+</div>
+
+<div class="escolha">
+
+    <span id="modelo"></span>
+
+    <span>
+        TAMANHO <b id="tamanho"></b>
+    </span>
+
+</div>
+
+<form onsubmit="confirmarReserva(event)">
+
+<input
+type="text"
+placeholder="NOME DA PESSOA"
+required>
+
+<input
+type="text"
+placeholder="NOME DA CAMISA"
+required>
+
+<input
+type="tel"
+placeholder="NÚMERO DE CONTATO"
+required>
+
+<button type="submit">
+CONFIRMAR RESERVA
+</button>
+
+</form>
+
+</main>
+
+<script type="module">
+
+import { db } from "./firebase.js";
+
+import {
+    collection,
+    addDoc,
+    getDocs,
+    query,
+    where
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
+
+const generoEscolhido = localStorage.getItem("genero");
+const numeroEscolhido = localStorage.getItem("numero");
+const modeloEscolhido = localStorage.getItem("modelo");
+const tamanhoEscolhido = localStorage.getItem("tamanho");
+
+document.getElementById("modelo").innerHTML =
+modeloEscolhido.toUpperCase();
+
+document.getElementById("tamanho").innerHTML =
+tamanhoEscolhido.toUpperCase();
+
+document.getElementById("genero").innerHTML =
+generoEscolhido.toUpperCase();
+
+document.getElementById("numero").innerHTML =
+numeroEscolhido.toString().padStart(2,"0");
+
+
+window.confirmarReserva = async function(event){
+
+    event.preventDefault();
+
+    const inputs = document.querySelectorAll("input");
+
+    const nome = inputs[0].value;
+    const nomeCamisa = inputs[1].value;
+    const contato = inputs[2].value;
+
+
+    // verifica se o número já existe
+
+    const verificaNumero = await getDocs(
+        query(
+            collection(db, "reservas"),
+            where("genero", "==", generoEscolhido),
+            where("numero", "==", Number(numeroEscolhido))
+        )
+    );
+
+    console.log(verificaNumero.size);
+
+    if(!verificaNumero.empty){
+
+        alert("Esse número já foi reservado. Escolha outro.");
+
+        window.location.href = generoEscolhido + ".html";
+
+        return;
+
+    }
+
+
+    // salva a reserva no Firebase
+
+    await addDoc(collection(db, "reservas"), {
+
+        nome: nome,
+
+        nomeCamisa: nomeCamisa,
+
+        contato: contato,
+
+        genero: generoEscolhido,
+
+        numero: Number(numeroEscolhido),
+
+        modelo: modeloEscolhido,
+
+        tamanho: tamanhoEscolhido,
+
+        status: "pendente",
+
+        data: new Date()
+
+    });
+
+
+    // salva os dados para a mensagem do WhatsApp
+
+    localStorage.setItem("nomeReserva", nome);
+
+    localStorage.setItem("nomeCamisaReserva", nomeCamisa);
+
+
+    // direciona para a confirmação
+
+    window.location.href = "confirmacao.html";
+
+}
+
+</script>
+
+</body>
+
+</html>

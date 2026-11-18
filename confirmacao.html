@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vanguarda | Reserva Enviada</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="confirmacao.css">
+
+</head>
+
+<body>
+
+<main class="pagina">
+
+<h1>VANGUARDA</h1>
+
+<div class="check">✓</div>
+
+<h2>RESERVA ENVIADA!</h2>
+
+<p class="texto">
+Sua solicitação foi enviada com sucesso.
+</p>
+
+<div class="resumo">
+
+<p id="genero"></p>
+
+<p>
+NÚMERO <span id="numero"></span>
+</p>
+
+<p>
+<span id="modelo"></span> • <span id="tamanho"></span>
+</p>
+
+</div>
+
+<p class="mensagem">
+Sua reserva foi registrada! Para concluir seu pedido,
+envie uma mensagem pelo WhatsApp e receba as orientações
+para encaminhar seu comprovante de pagamento.
+</p>
+
+<a href="#" id="whatsapp" class="botao" target="_blank">
+ENVIAR COMPROVANTE PELO WHATSAPP
+</a>
+
+<a href="index.html" class="botao">
+VOLTAR AO INÍCIO
+</a>
+
+</main>
+
+<script>
+
+// Recupera os dados da reserva
+
+const genero = localStorage.getItem("genero");
+const numero = localStorage.getItem("numero");
+const modelo = localStorage.getItem("modelo");
+const tamanho = localStorage.getItem("tamanho");
+
+const nome = localStorage.getItem("nomeReserva");
+const nomeCamisa = localStorage.getItem("nomeCamisaReserva");
+
+// Preenche o resumo da reserva
+
+document.getElementById("genero").textContent =
+genero.toUpperCase();
+
+document.getElementById("numero").textContent =
+numero.padStart(2, "0");
+
+document.getElementById("modelo").textContent =
+modelo.toUpperCase();
+
+document.getElementById("tamanho").textContent =
+tamanho.toUpperCase();
+
+// Cria a mensagem personalizada
+
+const mensagem =
+`Olá! Acabei de realizar minha reserva da camisa Vanguarda 2027! 🦉
+
+Nome: ${nome}
+Nome na camisa: ${nomeCamisa}
+Número: ${numero.padStart(2, "0")}
+Modelo: ${modelo}
+Tamanho: ${tamanho}
+
+Gostaria de receber as orientações para enviar meu comprovante de pagamento.
+
+Obrigada!`;
+
+// Configura o link do WhatsApp
+
+const telefone = "5531998253809";
+
+const linkWhatsApp =
+"https://wa.me/" + telefone +
+"?text=" + encodeURIComponent(mensagem);
+
+document.getElementById("whatsapp").href = linkWhatsApp;
+
+</script>
+
+</body>
+
+</html>

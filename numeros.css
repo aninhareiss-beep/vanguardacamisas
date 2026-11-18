@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: 'Montserrat', sans-serif;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+    ),
+    url("owl-eyes.jpeg");
+
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    color: white;
+
+}
+
+
+
+.pagina {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    padding: 80px;
+
+}
+
+
+
+.lista {
+
+    width: 45%;
+
+}
+
+
+
+.subtitulo {
+
+    color: #d9a0bb;
+
+    font-size: 18px;
+
+    letter-spacing: 6px;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+.numeros {
+
+    display: grid;
+
+    grid-template-columns: repeat(5, 70px);
+
+    gap: 18px;
+
+}
+
+
+
+.numeros a {
+
+    color: #e45b98;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    text-align: center;
+
+    padding: 15px 0;
+
+    border: 1px solid #e45b98;
+
+    transition: 0.3s;
+
+}
+
+
+
+.numeros a:hover {
+
+    background: #e45b98;
+
+    color: black;
+
+}
+
+
+
+.identidade {
+
+    width: 45%;
+
+    text-align: center;
+
+}
+
+
+
+.identidade h1 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 160px;
+
+    line-height: 0.8;
+
+    letter-spacing: 8px;
+
+    color: #e45b98;
+
+}
+
+
+
+.identidade span {
+
+    display: block;
+
+    margin-top: 45px;
+
+    color: #d9a0bb;
+
+    font-size: 25px;
+
+    letter-spacing: 15px;
+
+}
